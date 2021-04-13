@@ -8,10 +8,10 @@ tails_count = 0
 total_flips = 0
 
 def flip():
-    heads_count = 0
-    tails_count = 0
     
     while playing:
+        heads_count = 0
+        tails_count = 0
         player_choice = input("Choose Heads or Tails by entering 'H' or 'T': ")
 
         if player_choice.upper() not in choices:
