@@ -12,10 +12,6 @@ def flip():
     tails_count = 0
     
     while playing:
-        # heads_count = 0
-        # tails_count = 0
-        # total_flips = 0
-
         player_choice = input("Choose Heads or Tails by entering 'H' or 'T': ")
         if player_choice.upper() != 'H' and player_choice.upper() != 'T':
             print('Invalid input. Please try again.')
@@ -53,16 +49,15 @@ while playing:
     print(f"Correct tails guesses: {tails_count}")
     print(f"Total # of flips: {total_flips}")
 
-    
-    new_game = input("\nWould you like to play again? Enter 'Y' or 'N': ")
+    while True:
+        new_game = input("\nWould you like to play again? Enter 'Y' or 'N': ")
 
-    if new_game[0].upper() == 'Y':
-        playing = True
-        continue
-    elif new_game[0].upper() == 'N':
-        playing = False
-        print('Thanks for playing!')
-    else:
-        print('Invalid input. Please try again.')
-        
-    
+        if new_game[0].upper() == 'Y':
+            playing = True
+        elif new_game[0].upper() == 'N':
+            playing = False
+            print('Thanks for playing!')
+        else:
+            print('Invalid input. Please try again.')
+            continue
+        break
