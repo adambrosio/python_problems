@@ -2,43 +2,50 @@ import random
 
 playing = True
 
-choices = ('H','T')
+# choices = ('H','T')
 heads_count = 0
 tails_count = 0
 total_flips = 0
 
 def flip():
-    while True:
-        player_choice = input("Choose Heads or Tails by entering 'H' or 'T': ")
-        toss = random.choice(choices)
+    while playing:
+        choices = ('H','T')
         heads_count = 0
         tails_count = 0
         total_flips = 0
-        print('Flipping...')
-        print(f'\nThe flip is a: {toss}')
+
+        player_choice = input("Choose Heads or Tails by entering 'H' or 'T': ")
+        if player_choice.upper() != 'H' and player_choice.upper() != 'T':
+            print('Invalid input. Please try again.')
+            continue
+
+        toss = random.choice(choices)
+
+        print('\nFlipping...')
+        print(f'The flip is: {toss}')
 
         if player_choice[0].upper() == 'H' and toss == 'H':
             heads_count += 1
             total_flips += 1
-            print('You won!')
+            print('\nYou won!')
             break
         elif player_choice[0].upper() == 'T' and toss == 'T':
             tails_count += 1
             total_flips += 1
-            print('You won!')
+            print('\nYou won!')
             break
         elif player_choice[0].upper() == 'H' and toss == 'T':
             total_flips += 1
-            print('You lost!')
+            print('\nYou lost!')
             break
         elif player_choice[0].upper() == 'T' and toss == 'H':
             total_flips += 1
-            print('You lost!')
+            print('\nYou lost!')
             break
         else:
-            print('Invalid input. Please try again.')
+            print('\nInvalid input. Please try again.')
             continue
-        break
+        
 
 while playing:
     print('Welcome to Coin Flip!')
@@ -46,13 +53,18 @@ while playing:
 
     print(f"Correct heads guesses: {heads_count}")
     print(f"Correct tails guesses: {tails_count}")
-    print(f"Total flips: {total_flips}")
+    print(f"Total # of flips: {total_flips}")
 
-    new_game = input("Would you like to play again? Enter 'Y' or 'N': ")
+    
+    new_game = input("\nWould you like to play again? Enter 'Y' or 'N': ")
 
     if new_game[0].upper() == 'Y':
         playing = True
         continue
-    else:
+    elif new_game[0].upper() == 'N':
+        playing = False
         print('Thanks for playing!')
-        break
+    else:
+        print('Invalid input. Please try again.')
+        continue
+    
