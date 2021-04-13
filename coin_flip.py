@@ -13,7 +13,8 @@ def flip():
     
     while playing:
         player_choice = input("Choose Heads or Tails by entering 'H' or 'T': ")
-        if player_choice.upper() != 'H' and player_choice.upper() != 'T':
+
+        if player_choice.upper() not in choices:
             print('Invalid input. Please try again.')
             continue
 
