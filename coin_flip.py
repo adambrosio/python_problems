@@ -8,7 +8,6 @@ tails_count = 0
 total_flips = 0
 
 def flip():
-    
     while playing:
         heads_count = 0
         tails_count = 0
