@@ -9,8 +9,8 @@ total_flips = 0
 
 def flip():
     while playing:
-        heads_count = 0
-        tails_count = 0
+        # heads_count = 0
+        # tails_count = 0
         player_choice = input("Choose Heads or Tails by entering 'H' or 'T': ")
 
         if player_choice.upper() not in choices:
@@ -39,7 +39,7 @@ def flip():
         else:
             print('\nInvalid input. Please try again.')
             continue
-        
+
 while playing:
     print('Welcome to Coin Flip!')
     flip()
